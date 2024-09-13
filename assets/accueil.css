@@ -1,0 +1,44 @@
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0px;
+}
+
+header {
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+header div {
+  box-shadow: 0px 3px 5px rgb(182, 182, 182);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header .logo {
+  height: 57%;
+}
+header .logo img {
+  height: 50%;
+}
+header .location {
+  height: 43%;
+  background-color: #eaeaea;
+  color: #353535;
+  z-index: -1;
+}
+header .location input {
+  width: 175px;
+  border: none;
+  text-align: center;
+  background: none;
+  font-weight: 500;
+  font-size: 18px;
+  color: #353535;
+}
+
+.h1-shrikhand {
+  font-family: "ShrikHand", serif;
+}/*# sourceMappingURL=accueil.css.map */
