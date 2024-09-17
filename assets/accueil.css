@@ -113,6 +113,31 @@ header .location input {
   font-size: 20px;
 }
 
-.h1-shrikhand {
+footer {
+  background-color: #353535;
+  color: white;
+  font-size: 16px;
+  padding: 20px;
+}
+footer h1 {
   font-family: "ShrikHand", serif;
+  font-size: 20px;
+  font-weight: 100;
+  margin-top: 0px;
+}
+footer div {
+  display: flex;
+  align-items: center;
+}
+footer div i {
+  margin-right: 10px;
+  width: 20px;
+}
+footer p,
+footer a {
+  margin: 5px 0px 5px 0px;
+}
+footer a {
+  color: white;
+  text-decoration: none;
 }/*# sourceMappingURL=accueil.css.map */
