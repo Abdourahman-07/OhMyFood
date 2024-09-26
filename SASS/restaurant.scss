@@ -1,0 +1,268 @@
+@import "footer.scss";
+@import "mixins.scss";
+@import "variables.scss";
+
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0px;
+}
+
+header {
+  display: flex;
+  height: 50px;
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10%;
+    text-decoration: none;
+    color: black;
+    i {
+      scale: 1.5;
+    }
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 90%;
+    padding-right: 10%;
+    img {
+      height: 70%;
+    }
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  img {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+  }
+  .menu {
+    padding-bottom: 30px;
+    overflow: hidden;
+    max-width: 1050px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    background-color: $grey-color;
+    border-radius: 30px 30px 0px 0px;
+    .head-menu {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+      width: 100%;
+      max-width: 300px;
+      h1 {
+        font-family: "ShrikHand", serif;
+        font-size: 1.5em;
+        width: 100%;
+      }
+      @include heart-check;
+      .heart-anim {
+        .fa-solid,
+        .fa-regular {
+          top: 28px;
+          right: 0px;
+        }
+        font-size: 20px;
+      }
+    }
+
+    //Animation faisant apparaître les catégories de plats une par une (entrée, plat, dessert)
+    @keyframes section {
+      from {
+        opacity: 0;
+        left: -100%;
+      }
+      to {
+        opacity: 1;
+        left: 0%;
+      }
+    }
+    section {
+      animation: section 1s both;
+    }
+    section + section {
+      animation: section 1.5s both;
+    }
+    section + section + section {
+      animation: section 2s both;
+    }
+
+    section {
+      position: relative;
+      width: 95%;
+      padding: 10px;
+      max-width: 750px;
+      h2 {
+        font-weight: 300;
+        font-size: 1em;
+        margin-bottom: 5px;
+      }
+      .border {
+        height: 3px;
+        width: 40px;
+        background-color: $tertiary-color;
+        margin-bottom: 10px;
+      }
+      label {
+        position: relative;
+        .choice {
+          display: none;
+
+          //.ghost-choosed-dish cache l'effet move-reverse de choosed-dish au chargement de la page
+          & + .dish > .ghost-choosed-dish {
+            position: absolute;
+            right: 0px;
+            z-index: 5;
+            height: 100%;
+            width: 60px;
+            background-color: white;
+            @keyframes hide-choosed-dish {
+              100% {
+                background: transparent;
+              }
+            }
+            animation: hide-choosed-dish 500ms both;
+          }
+
+          @keyframes text-move {
+            from {
+              width: 85%;
+            }
+            to {
+              width: 60%;
+            }
+          }
+          @keyframes text-move-reverse {
+            from {
+              width: 60%;
+            }
+            to {
+              width: 85%;
+            }
+          }
+
+          @keyframes move {
+            from {
+              right: -65px;
+            }
+            to {
+              right: 0px;
+            }
+          }
+          @keyframes move-reverse {
+            from {
+              right: 0px;
+            }
+            to {
+              right: -65px;
+            }
+          }
+
+          &:checked + .dish > .text {
+            animation: text-move 300ms ease-in-out both;
+          }
+          &:checked + .dish > .price,
+          &:checked + .dish > .choosed-dish {
+            animation: move 300ms both;
+          }
+
+          &:not(:checked) + .dish > .text {
+            animation: text-move-reverse 300ms ease-in-out both;
+          }
+          &:not(:checked) + .dish > .price,
+          &:not(:checked) + .dish > .choosed-dish {
+            animation: move-reverse 300ms both;
+          }
+        }
+      }
+    }
+
+    .dish {
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+      background-color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      height: 70px;
+      margin-bottom: 10px;
+      border-radius: 20px;
+      box-shadow: 0px 5px 10px #dad9d9;
+      box-sizing: border-box;
+      width: 100%;
+      .text {
+        width: 85%;
+        margin: 5px;
+        h3,
+        p {
+          margin: 5px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+      .price {
+        position: absolute;
+        font-weight: bold;
+        margin: 0px 75px 10px 0px;
+      }
+      .choosed-dish {
+        position: absolute;
+        right: -60px;
+        z-index: 3;
+        height: 100%;
+        width: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $tertiary-color;
+        i {
+          color: white;
+          font-size: 1.5em;
+        }
+      }
+    }
+  }
+  a {
+    @include button;
+  }
+}
+
+//****************************** MEDIA QUERIES ******************************//
+
+//Pour les tablettes et les ordinateurs (>= 769)
+@media (min-width: 769px) {
+  main {
+    .menu {
+      .head-menu {
+        @include heart-hover;
+      }
+      section {
+        label {
+          .choice {
+            &:hover + .dish > .price,
+            &:hover + .dish > .choosed-dish {
+              animation: move 300ms both;
+            }
+            &:not(:hover) + .dish > .price,
+            &:not(:hover) + .dish > .choosed-dish {
+              animation: move-reverse 300ms both;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,423 @@
+footer {
+  background-color: #353535;
+  color: white;
+  font-size: 16px;
+  padding: 20px;
+}
+footer h1 {
+  font-family: "ShrikHand", serif;
+  font-size: 20px;
+  font-weight: 100;
+  margin-top: 0px;
+}
+footer div div {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+}
+footer div div i {
+  margin-right: 10px;
+  width: 20px;
+}
+footer div p,
+footer div a {
+  margin: 5px 0px 5px 0px;
+}
+footer div a {
+  color: white;
+  text-decoration: none;
+}
+
+@media (min-width: 769px) {
+  footer {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  footer h1 {
+    margin-top: 40px;
+  }
+  footer div {
+    display: flex;
+    align-items: center;
+    margin: 35px 40px 0px 0px;
+  }
+  footer div div {
+    margin: 0px 20px 0px 0px;
+  }
+  footer div div p {
+    margin: 0px;
+  }
+  footer div p,
+  footer div a {
+    margin-right: 20px;
+  }
+  footer div p {
+    margin-left: 30px;
+  }
+}
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0px;
+}
+
+header {
+  display: flex;
+  height: 50px;
+}
+header a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10%;
+  text-decoration: none;
+  color: black;
+}
+header a i {
+  scale: 1.5;
+}
+header .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 90%;
+  padding-right: 10%;
+}
+header .logo img {
+  height: 70%;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main img {
+  height: 250px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+main .menu {
+  padding-bottom: 30px;
+  overflow: hidden;
+  max-width: 1050px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #f6f6f6;
+  border-radius: 30px 30px 0px 0px;
+}
+main .menu .head-menu {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  width: 100%;
+  max-width: 300px;
+}
+main .menu .head-menu h1 {
+  font-family: "ShrikHand", serif;
+  font-size: 1.5em;
+  width: 100%;
+}
+main .menu .head-menu .heart-anim {
+  scale: 1.5;
+}
+main .menu .head-menu .heart-anim .heart {
+  display: none;
+}
+main .menu .head-menu .heart-anim .fa-solid,
+main .menu .head-menu .heart-anim .fa-regular {
+  position: absolute;
+  right: 0px;
+}
+main .menu .head-menu .heart-anim .fa-regular {
+  animation: hide-first-effect 400ms both;
+}
+@keyframes hide-first-effect {
+  0%, 99% {
+    z-index: 2;
+    background: content-box;
+    background-color: #f6f6f6;
+  }
+  100% {
+    z-index: -1;
+    background: transparent;
+  }
+}
+main .menu .head-menu .heart-anim .fa-solid {
+  z-index: 1;
+  color: transparent;
+  background: linear-gradient(0deg, #ff79da, #9356dc);
+  -webkit-background-clip: text;
+          background-clip: text;
+  opacity: 0;
+}
+@keyframes love {
+  from {
+    opacity: 0;
+    scale: 0;
+  }
+  to {
+    opacity: 1;
+    scale: 1.05;
+  }
+}
+@keyframes love-reverse {
+  from {
+    opacity: 1;
+    scale: 1.05;
+  }
+  to {
+    opacity: 0;
+    scale: 0;
+  }
+}
+main .menu .head-menu .heart-anim .heart:checked + .fa-regular + .fa-solid {
+  animation: love 300ms both;
+}
+main .menu .head-menu .heart-anim .heart:not(:checked) + .fa-regular + .fa-solid {
+  animation: love-reverse 300ms both;
+}
+main .menu .head-menu .heart-anim {
+  font-size: 20px;
+}
+main .menu .head-menu .heart-anim .fa-solid,
+main .menu .head-menu .heart-anim .fa-regular {
+  top: 28px;
+  right: 0px;
+}
+@keyframes section {
+  from {
+    opacity: 0;
+    left: -100%;
+  }
+  to {
+    opacity: 1;
+    left: 0%;
+  }
+}
+main .menu section {
+  animation: section 1s both;
+}
+main .menu section + section {
+  animation: section 1.5s both;
+}
+main .menu section + section + section {
+  animation: section 2s both;
+}
+main .menu section {
+  position: relative;
+  width: 95%;
+  padding: 10px;
+  max-width: 750px;
+}
+main .menu section h2 {
+  font-weight: 300;
+  font-size: 1em;
+  margin-bottom: 5px;
+}
+main .menu section .border {
+  height: 3px;
+  width: 40px;
+  background-color: #99e2d0;
+  margin-bottom: 10px;
+}
+main .menu section label {
+  position: relative;
+}
+main .menu section label .choice {
+  display: none;
+}
+main .menu section label .choice + .dish > .ghost-choosed-dish {
+  position: absolute;
+  right: 0px;
+  z-index: 5;
+  height: 100%;
+  width: 60px;
+  background-color: white;
+  animation: hide-choosed-dish 500ms both;
+}
+@keyframes hide-choosed-dish {
+  100% {
+    background: transparent;
+  }
+}
+@keyframes text-move {
+  from {
+    width: 85%;
+  }
+  to {
+    width: 60%;
+  }
+}
+@keyframes text-move-reverse {
+  from {
+    width: 60%;
+  }
+  to {
+    width: 85%;
+  }
+}
+@keyframes move {
+  from {
+    right: -65px;
+  }
+  to {
+    right: 0px;
+  }
+}
+@keyframes move-reverse {
+  from {
+    right: 0px;
+  }
+  to {
+    right: -65px;
+  }
+}
+main .menu section label .choice:checked + .dish > .text {
+  animation: text-move 300ms ease-in-out both;
+}
+main .menu section label .choice:checked + .dish > .price, main .menu section label .choice:checked + .dish > .choosed-dish {
+  animation: move 300ms both;
+}
+main .menu section label .choice:not(:checked) + .dish > .text {
+  animation: text-move-reverse 300ms ease-in-out both;
+}
+main .menu section label .choice:not(:checked) + .dish > .price, main .menu section label .choice:not(:checked) + .dish > .choosed-dish {
+  animation: move-reverse 300ms both;
+}
+main .menu .dish {
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  height: 70px;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  box-shadow: 0px 5px 10px #dad9d9;
+  box-sizing: border-box;
+  width: 100%;
+}
+main .menu .dish .text {
+  width: 85%;
+  margin: 5px;
+}
+main .menu .dish .text h3,
+main .menu .dish .text p {
+  margin: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+main .menu .dish .price {
+  position: absolute;
+  font-weight: bold;
+  margin: 0px 75px 10px 0px;
+}
+main .menu .dish .choosed-dish {
+  position: absolute;
+  right: -60px;
+  z-index: 3;
+  height: 100%;
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #99e2d0;
+}
+main .menu .dish .choosed-dish i {
+  color: white;
+  font-size: 1.5em;
+}
+main a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(0deg, #9356dc, #ff79da);
+  border-radius: 50px;
+  width: 220px;
+  height: 50px;
+  text-decoration: none;
+  color: white;
+  box-shadow: 0px 5px 5px #dad9d9;
+  transition: all 300ms;
+}
+main a:hover {
+  opacity: 0.7;
+  box-shadow: 0px 8px 5px #dad9d9;
+}
+
+@media (min-width: 769px) {
+  main .menu .head-menu .heart-anim {
+    scale: 1.5;
+  }
+  main .menu .head-menu .heart-anim .heart {
+    display: none;
+  }
+  main .menu .head-menu .heart-anim .fa-solid,
+  main .menu .head-menu .heart-anim .fa-regular {
+    position: absolute;
+    right: 0px;
+  }
+  main .menu .head-menu .heart-anim .fa-regular {
+    animation: hide-first-effect 400ms both;
+  }
+  @keyframes hide-first-effect {
+    0%, 99% {
+      z-index: 2;
+      background: content-box;
+      background-color: #f6f6f6;
+    }
+    100% {
+      z-index: -1;
+      background: transparent;
+    }
+  }
+  main .menu .head-menu .heart-anim .fa-solid {
+    z-index: 1;
+    color: transparent;
+    background: linear-gradient(0deg, #ff79da, #9356dc);
+    -webkit-background-clip: text;
+            background-clip: text;
+    opacity: 0;
+  }
+  @keyframes love {
+    from {
+      opacity: 0;
+      scale: 0;
+    }
+    to {
+      opacity: 1;
+      scale: 1.05;
+    }
+  }
+  @keyframes love-reverse {
+    from {
+      opacity: 1;
+      scale: 1.05;
+    }
+    to {
+      opacity: 0;
+      scale: 0;
+    }
+  }
+  main .menu .head-menu .heart-anim .heart:hover + .fa-regular + .fa-solid {
+    animation: love 300ms both;
+  }
+  main .menu .head-menu .heart-anim .heart:not(:hover) + .fa-regular + .fa-solid {
+    animation: love-reverse 300ms both;
+  }
+  main .menu section label .choice:hover + .dish > .price, main .menu section label .choice:hover + .dish > .choosed-dish {
+    animation: move 300ms both;
+  }
+  main .menu section label .choice:not(:hover) + .dish > .price, main .menu section label .choice:not(:hover) + .dish > .choosed-dish {
+    animation: move-reverse 300ms both;
+  }
+}/*# sourceMappingURL=restaurant.css.map */
