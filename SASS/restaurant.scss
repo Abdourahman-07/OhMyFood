@@ -234,6 +234,9 @@ main {
             overflow: hidden;
             text-overflow: ellipsis;
           }
+          p {
+            font-weight: 300;
+          }
         }
         .price {
           position: absolute;

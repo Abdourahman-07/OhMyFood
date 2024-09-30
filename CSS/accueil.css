@@ -317,6 +317,9 @@ header .location input {
 .box-restaurants .restaurants .restaurants-list .menu a .menu-elements div p {
   margin: 5px;
 }
+.box-restaurants .restaurants .restaurants-list .menu a .menu-elements div p {
+  font-weight: 300;
+}
 .box-restaurants .restaurants .restaurants-list .menu .heart-anim {
   transform: scale(1.5);
 }

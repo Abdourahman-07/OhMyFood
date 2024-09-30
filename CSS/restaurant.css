@@ -96,7 +96,7 @@ main img {
   height: 250px;
   width: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 main .menu {
   bottom: 30px;
@@ -138,7 +138,8 @@ main .menu .head-menu .heart-anim .fa-regular {
   animation: hide-first-effect 400ms both;
 }
 @keyframes hide-first-effect {
-  0%, 99% {
+  0%,
+  99% {
     z-index: 2;
     background: content-box;
     background-color: #f6f6f6;
@@ -153,7 +154,7 @@ main .menu .head-menu .heart-anim .fa-solid {
   color: transparent;
   background: linear-gradient(0deg, #ff79da, #9356dc);
   -webkit-background-clip: text;
-          background-clip: text;
+  background-clip: text;
   opacity: 0;
 }
 @keyframes love {
@@ -179,7 +180,13 @@ main .menu .head-menu .heart-anim .fa-solid {
 main .menu .head-menu .heart-anim .heart:checked + .fa-regular + .fa-solid {
   animation: love 300ms both;
 }
-main .menu .head-menu .heart-anim .heart:not(:checked) + .fa-regular + .fa-solid {
+main
+  .menu
+  .head-menu
+  .heart-anim
+  .heart:not(:checked)
+  + .fa-regular
+  + .fa-solid {
   animation: love-reverse 300ms both;
 }
 main .menu .head-menu .heart-anim {
@@ -255,7 +262,13 @@ main .menu section .dish .element-check:has(.choice:checked) + .text + .price {
 main .menu section .dish .element-check:has(.choice:not(:checked)) + .text {
   animation: text-move-reverse 300ms both;
 }
-main .menu section .dish .element-check:has(.choice:not(:checked)) + .text + .price {
+main
+  .menu
+  section
+  .dish
+  .element-check:has(.choice:not(:checked))
+  + .text
+  + .price {
   animation: move-reverse 300ms both;
 }
 main .menu section .dish .element-check .choice {
@@ -293,10 +306,24 @@ main .menu section .dish .element-check .choice {
     right: -65px;
   }
 }
-main .menu section .dish .element-check .choice:checked + .ghost-choosed-dish + .choosed-dish {
+main
+  .menu
+  section
+  .dish
+  .element-check
+  .choice:checked
+  + .ghost-choosed-dish
+  + .choosed-dish {
   animation: move 300ms both;
 }
-main .menu section .dish .element-check .choice:not(:checked) + .ghost-choosed-dish + .choosed-dish {
+main
+  .menu
+  section
+  .dish
+  .element-check
+  .choice:not(:checked)
+  + .ghost-choosed-dish
+  + .choosed-dish {
   animation: move-reverse 300ms both;
 }
 main .menu section .dish .element-check .ghost-choosed-dish {
@@ -339,6 +366,9 @@ main .menu section .dish .text p {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+main .menu section .dish .text p {
+  font-weight: 300;
+}
 main .menu section .dish .price {
   position: absolute;
   font-weight: bold;
@@ -378,7 +408,8 @@ main a:hover {
     animation: hide-first-effect 400ms both;
   }
   @keyframes hide-first-effect {
-    0%, 99% {
+    0%,
+    99% {
       z-index: 2;
       background: content-box;
       background-color: #f6f6f6;
@@ -393,7 +424,7 @@ main a:hover {
     color: transparent;
     background: linear-gradient(0deg, #ff79da, #9356dc);
     -webkit-background-clip: text;
-            background-clip: text;
+    background-clip: text;
     opacity: 0;
   }
   @keyframes love {
@@ -419,7 +450,13 @@ main a:hover {
   main .menu .head-menu .heart-anim .heart:hover + .fa-regular + .fa-solid {
     animation: love 300ms both;
   }
-  main .menu .head-menu .heart-anim .heart:not(:hover) + .fa-regular + .fa-solid {
+  main
+    .menu
+    .head-menu
+    .heart-anim
+    .heart:not(:hover)
+    + .fa-regular
+    + .fa-solid {
     animation: love-reverse 300ms both;
   }
   main .menu section .dish .element-check:has(.choice:hover) + .text {
@@ -431,13 +468,33 @@ main a:hover {
   main .menu section .dish .element-check:has(.choice:not(:hover)) + .text {
     animation: text-move-reverse 300ms both;
   }
-  main .menu section .dish .element-check:has(.choice:not(:hover)) + .text + .price {
+  main
+    .menu
+    section
+    .dish
+    .element-check:has(.choice:not(:hover))
+    + .text
+    + .price {
     animation: move-reverse 300ms both;
   }
-  main .menu section .dish .element-check .choice:hover + .ghost-choosed-dish + .choosed-dish {
+  main
+    .menu
+    section
+    .dish
+    .element-check
+    .choice:hover
+    + .ghost-choosed-dish
+    + .choosed-dish {
     animation: move 300ms both;
   }
-  main .menu section .dish .element-check .choice:not(:hover) + .ghost-choosed-dish + .choosed-dish {
+  main
+    .menu
+    section
+    .dish
+    .element-check
+    .choice:not(:hover)
+    + .ghost-choosed-dish
+    + .choosed-dish {
     animation: move-reverse 300ms both;
   }
-}/*# sourceMappingURL=restaurant.css.map */
+} /*# sourceMappingURL=restaurant.css.map */
