@@ -6,7 +6,6 @@ body {
   font-family: "Roboto", sans-serif;
   margin: 0px;
 }
-
 header {
   display: flex;
   height: 50px;
@@ -18,7 +17,7 @@ header {
     text-decoration: none;
     color: black;
     i {
-      scale: 1.5;
+      transform: scale(1.5);
     }
   }
   .logo {
@@ -44,14 +43,14 @@ main {
     object-fit: cover;
   }
   .menu {
-    padding-bottom: 30px;
+    bottom: 30px;
+    box-shadow: 0px 30px 0px $grey-color; //Cette ombre comble le vide laissé par le changement de position du menu
     overflow: hidden;
     max-width: 1050px;
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
-    box-sizing: border-box;
     width: 100%;
     background-color: $grey-color;
     border-radius: 30px 30px 0px 0px;
@@ -114,13 +113,87 @@ main {
         background-color: $tertiary-color;
         margin-bottom: 10px;
       }
-      label {
+      .dish {
+        overflow: hidden;
         position: relative;
-        .choice {
-          display: none;
+        z-index: 1;
+        background-color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        height: 70px;
+        margin-bottom: 10px;
+        border-radius: 20px;
+        box-shadow: 0px 5px 10px #dad9d9;
+        box-sizing: border-box;
+        width: 100%;
+        .element-check {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          &:has(.choice:checked) {
+            & + .text {
+              animation: text-move 300ms both;
+            }
+            & + .text + .price {
+              animation: move 300ms both;
+            }
+          }
+          &:has(.choice:not(:checked)) {
+            & + .text {
+              animation: text-move-reverse 300ms both;
+            }
+            & + .text + .price {
+              animation: move-reverse 300ms both;
+            }
+          }
+
+          .choice {
+            display: none;
+            @keyframes text-move {
+              from {
+                width: 85%;
+              }
+              to {
+                width: 60%;
+              }
+            }
+            @keyframes text-move-reverse {
+              from {
+                width: 60%;
+              }
+              to {
+                width: 85%;
+              }
+            }
+
+            @keyframes move {
+              from {
+                right: -65px;
+              }
+              to {
+                right: 0px;
+              }
+            }
+            @keyframes move-reverse {
+              from {
+                right: 0px;
+              }
+              to {
+                right: -65px;
+              }
+            }
+            &:checked + .ghost-choosed-dish + .choosed-dish {
+              animation: move 300ms both;
+            }
+
+            &:not(:checked) + .ghost-choosed-dish + .choosed-dish {
+              animation: move-reverse 300ms both;
+            }
+          }
 
           //.ghost-choosed-dish cache l'effet move-reverse de choosed-dish au chargement de la page
-          & + .dish > .ghost-choosed-dish {
+          .ghost-choosed-dish {
             position: absolute;
             right: 0px;
             z-index: 5;
@@ -135,102 +208,37 @@ main {
             animation: hide-choosed-dish 500ms both;
           }
 
-          @keyframes text-move {
-            from {
-              width: 85%;
+          .choosed-dish {
+            position: absolute;
+            right: -60px;
+            z-index: 3;
+            height: 100%;
+            width: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: $tertiary-color;
+            i {
+              color: white;
+              font-size: 1.5em;
             }
-            to {
-              width: 60%;
-            }
-          }
-          @keyframes text-move-reverse {
-            from {
-              width: 60%;
-            }
-            to {
-              width: 85%;
-            }
-          }
-
-          @keyframes move {
-            from {
-              right: -65px;
-            }
-            to {
-              right: 0px;
-            }
-          }
-          @keyframes move-reverse {
-            from {
-              right: 0px;
-            }
-            to {
-              right: -65px;
-            }
-          }
-
-          &:checked + .dish > .text {
-            animation: text-move 300ms ease-in-out both;
-          }
-          &:checked + .dish > .price,
-          &:checked + .dish > .choosed-dish {
-            animation: move 300ms both;
-          }
-
-          &:not(:checked) + .dish > .text {
-            animation: text-move-reverse 300ms ease-in-out both;
-          }
-          &:not(:checked) + .dish > .price,
-          &:not(:checked) + .dish > .choosed-dish {
-            animation: move-reverse 300ms both;
           }
         }
-      }
-    }
-
-    .dish {
-      overflow: hidden;
-      position: relative;
-      z-index: 1;
-      background-color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      height: 70px;
-      margin-bottom: 10px;
-      border-radius: 20px;
-      box-shadow: 0px 5px 10px #dad9d9;
-      box-sizing: border-box;
-      width: 100%;
-      .text {
-        width: 85%;
-        margin: 5px;
-        h3,
-        p {
+        .text {
+          width: 85%;
           margin: 5px;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
+          h3,
+          p {
+            margin: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
         }
-      }
-      .price {
-        position: absolute;
-        font-weight: bold;
-        margin: 0px 75px 10px 0px;
-      }
-      .choosed-dish {
-        position: absolute;
-        right: -60px;
-        z-index: 3;
-        height: 100%;
-        width: 60px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: $tertiary-color;
-        i {
-          color: white;
-          font-size: 1.5em;
+        .price {
+          position: absolute;
+          font-weight: bold;
+          margin: 0px 75px 10px 0px;
         }
       }
     }
@@ -250,15 +258,31 @@ main {
         @include heart-hover;
       }
       section {
-        label {
-          .choice {
-            &:hover + .dish > .price,
-            &:hover + .dish > .choosed-dish {
-              animation: move 300ms both;
+        .dish {
+          .element-check {
+            &:has(.choice:hover) {
+              & + .text {
+                animation: text-move 300ms both;
+              }
+              & + .text + .price {
+                animation: move 300ms both;
+              }
             }
-            &:not(:hover) + .dish > .price,
-            &:not(:hover) + .dish > .choosed-dish {
-              animation: move-reverse 300ms both;
+            &:has(.choice:not(:hover)) {
+              & + .text {
+                animation: text-move-reverse 300ms both;
+              }
+              & + .text + .price {
+                animation: move-reverse 300ms both;
+              }
+            }
+            .choice {
+              &:hover + .ghost-choosed-dish + .choosed-dish {
+                animation: move 300ms both;
+              }
+              &:not(:hover) + .ghost-choosed-dish + .choosed-dish {
+                animation: move-reverse 300ms both;
+              }
             }
           }
         }

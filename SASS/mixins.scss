@@ -22,7 +22,7 @@
 // Ce mixin définit le style des coeurs cliquables
 @mixin heart {
   .heart-anim {
-    scale: 1.5;
+    transform: scale(1.5);
 
     .heart {
       display: none;
@@ -60,22 +60,22 @@
       @keyframes love {
         from {
           opacity: 0;
-          scale: 0;
+          transform: scale(0);
         }
         //J'augmente un peu la taille du coeur rempli pour cacher la bordure du coeur vide
         to {
           opacity: 1;
-          scale: 1.05;
+          transform: scale(1.05);
         }
       }
       @keyframes love-reverse {
         from {
           opacity: 1;
-          scale: 1.05;
+          transform: scale(1.05);
         }
         to {
           opacity: 0;
-          scale: 0;
+          transform: scale(0);
         }
       }
     }
